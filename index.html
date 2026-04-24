@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Weather</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="weather-default">
+    <div class="app-container">
+        <!-- Search Section -->
+        <header class="search-section">
+            <div class="search-box">
+                <i class="fa-solid fa-location-dot location-icon"></i>
+                <input type="text" id="city-input" placeholder="Search for a city..." autocomplete="off">
+                <button id="search-btn" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+            <div id="error-message" class="error-message hidden">City not found. Please try again.</div>
+        </header>
+
+        <!-- Main Content (Hidden initially until loaded) -->
+        <main id="weather-content" class="hidden">
+            <!-- Current Weather Overview -->
+            <section class="current-weather">
+                <div class="weather-header">
+                    <h1 id="city-name">London, UK</h1>
+                    <p id="current-date">Mon, 24 Apr</p>
+                </div>
+                
+                <div class="temperature-display">
+                    <div class="weather-icon-container">
+                        <i id="main-weather-icon" class="fa-solid fa-cloud-sun"></i>
+                    </div>
+                    <div class="temp-info">
+                        <h2 id="temperature">22°</h2>
+                        <p id="weather-description">Partly Cloudy</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weather Details Grid -->
+            <section class="weather-details">
+                <div class="detail-card">
+                    <i class="fa-solid fa-temperature-half"></i>
+                    <div class="detail-info">
+                        <p class="label">Feels Like</p>
+                        <p class="value" id="feels-like">24°C</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div class="detail-info">
+                        <p class="label">Humidity</p>
+                        <p class="value" id="humidity">45%</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-solid fa-wind"></i>
+                    <div class="detail-info">
+                        <p class="label">Wind Speed</p>
+                        <p class="value" id="wind-speed">12 km/h</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fa-solid fa-eye"></i>
+                    <div class="detail-info">
+                        <p class="label">Visibility</p>
+                        <p class="value" id="visibility">10 km</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forecast Section -->
+            <section class="forecast-section">
+                <h3>7-Day Forecast</h3>
+                <div class="forecast-container" id="forecast-container">
+                    <!-- Forecast items will be injected here via JS -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="spinner-container hidden">
+            <div class="spinner"></div>
+        </div>
+        
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state">
+            <i class="fa-solid fa-cloud-moon-rain"></i>
+            <p>Enter a city name to see the weather forecast.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
